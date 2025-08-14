@@ -25,7 +25,7 @@
 #include <AMReX_REAL.H>
 #include <cctk_Arguments.h>
 
-static constexpr const char* INFO = "INFO (GeodesicsIntegratorX/Particles): ";
+static constexpr const char *INFO = "INFO (GeodesicsIntegratorX/Particles): ";
 
 namespace Iterator {
 
@@ -59,6 +59,9 @@ public:
 
 namespace Containers {
 
+// #############################################################################
+//                   PhotonsContainer::CLASS INITIALIZATION
+// #############################################################################
 template <typename StructType>
 class PhotonsContainer
     : public BaseParticlesContainer::BaseParticlesContainer<StructType> {
@@ -67,18 +70,30 @@ public:
   PhotonsContainer(amrex::AmrCore *amr_core)
       : BaseParticlesContainer::BaseParticlesContainer<StructType>(amr_core) {}
 
-  void initialize() override {
-    std::cout<<INFO<<"Initializing Particles with "<<StructType::n_attributes<<" attributes."<<std::endl;
-  }
+  void initialize() override;
+  void evolve() override;
+}; // PhotonsContainer class
 
-  void evolve() override {
-    std::cout<<INFO<<"Evolving Particles"<<std::endl;
-  }
-};
+// ##############################################################################
+//                   PhotonsContainer::METHODS DECLARATION
+// ##############################################################################
+
+template <typename StructType> void PhotonsContainer<StructType>::initialize() {
+  std::cout << INFO << "Initializing Particles with "
+            << StructType::n_attributes << " attributes." << std::endl;
+} // PhotonsContainer::initialize method
+
+template <typename StructType> void PhotonsContainer<StructType>::evolve() {
+  std::cout << INFO << "Evolving Particles" << std::endl;
+} // PhotonsContainer::evolve
+
+// #############################################################################
+//                   MassiveContainer::CLASS INITIALIZATION
+// #############################################################################
 
 template <typename StructType>
 class MassiveContainer
-    : public BaseParticlesContainer::BaseParticlesContainer<StructType> {};
+    : public BaseParticlesContainer::BaseParticlesContainer<StructType> {};// MassiveContainer class
 
 } // namespace Containers
 
