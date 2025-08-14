@@ -74,3 +74,15 @@ dkms.conf
 *.lai
 
 # End of https://www.toptal.com/developers/gitignore/api/c,c++
+
+
+# Adding carpetX and ETK files
+tags
+.ipynb_checkpoints
+*.pyc
+CarpetX/examples
+Maxwell.old
+StaticTrumpet.old
+
+# Adding .clangd file
+.clangd
