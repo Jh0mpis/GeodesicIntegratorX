@@ -1,0 +1,9 @@
+# Interface definition for thorn Particles
+
+IMPLEMENTS: Particles
+
+INHERITS: ADMBaseX AMReX
+
+USES INCLUDE HEADER: BaseParticlesContainer.hxx
+USES INCLUDE HEADER: ParticlesContainer.hxx
+USES INCLUDE HEADER: Particles.hxx

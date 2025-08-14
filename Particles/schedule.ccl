@@ -1,0 +1,11 @@
+SCHEDULE test_setup AT initial
+{
+  LANG: C
+  OPTIONS: global
+} "Setup"
+
+SCHEDULE test AT initial AFTER test_setup
+{
+    LANG: C
+    OPTIONS: global
+} "testing"
